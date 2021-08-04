@@ -73,12 +73,14 @@ window.google = {
       return {
         getSouthWest: function() { return sw; },
         getNorthEast: function() { return ne; },
-        toJSON: () => ({
-            south: sw ? (sw.lat || sw.latitude) : 0,
-            north: ne ? (ne.lat || ne.latitude) : 0,
-            west: sw ? (sw.lng || sw.longitude) : 0,
-            east: ne ? (ne.lng || ne.longitude) : 0,
-        }),
+        toJSON: function() {
+            return {
+              south: sw ? (sw.lat || sw.latitude) : 0,
+              north: ne ? (ne.lat || ne.latitude) : 0,
+              west: sw ? (sw.lng || sw.longitude) : 0,
+              east: ne ? (ne.lng || ne.longitude) : 0,
+            }
+        },
         union: noop,
         extend: noop,
       };
