@@ -88,6 +88,7 @@ window.google = {
     Map: function() {
       return {
         //methods
+        addListener: noop,
         fitBounds: noop,
         getBounds: noop,
         getCenter: noop,
@@ -185,7 +186,17 @@ window.google = {
     MVCArray: noop,
     MVCObject: noop,
     NavigationControlStyle: EMPTY_OBJECT,
-    OverlayView: fnEmptyObject,
+    OverlayView: function(){
+      return {
+        draw: noop,
+        getMap: noop,
+        getPanes: noop,
+        getProjection: noop,
+        onAdd: noop,
+        onRemove: noop,
+        setMap: noop
+      }
+    },
     Point: fnEmptyObject,
     Polygon: noop,
     Polyline: noop,
